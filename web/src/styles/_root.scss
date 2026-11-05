@@ -1,0 +1,21 @@
+@use 'abstracts' as *;
+
+:root {
+  color-scheme: light dark;
+
+  @include emit($palette);
+  @include emit($space, 'space-');
+  @include emit($radius, 'radius-');
+  @include emit($text, 'text-');
+  @include emit($semantic-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include emit($semantic-dark);
+  }
+}
+
+:root[data-theme='dark'] {
+  @include emit($semantic-dark);
+}

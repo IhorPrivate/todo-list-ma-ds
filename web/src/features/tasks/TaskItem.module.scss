@@ -1,0 +1,45 @@
+@use '@/styles/abstracts' as *;
+
+.item {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  @include up(md) {
+    grid-template-columns: 1fr minmax(14rem, 18rem);
+    align-items: start;
+  }
+}
+
+.body {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.title {
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.description {
+  color: var(--color-text-muted);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.assignee {
+  font-weight: 600;
+
+  &[data-assigned='true'] {
+    color: var(--color-primary);
+  }
+}

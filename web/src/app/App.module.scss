@@ -1,0 +1,27 @@
+@use '@/styles/abstracts' as *;
+
+// TasksPage sizes and centres its own <main>; the layout only places the notifications column beside it.
+.layout {
+  display: grid;
+  padding-block-end: var(--space-8);
+
+  @include up(lg) {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    align-items: start;
+    max-inline-size: 86rem;
+    margin-inline: auto;
+    padding-inline-end: var(--space-4);
+  }
+}
+
+.side {
+  inline-size: min(100% - 2 * var(--space-4), 60rem);
+  margin-inline: auto;
+
+  @include up(lg) {
+    position: sticky;
+    inset-block-start: var(--space-4);
+    inline-size: auto;
+    margin-block-start: var(--space-8);
+  }
+}

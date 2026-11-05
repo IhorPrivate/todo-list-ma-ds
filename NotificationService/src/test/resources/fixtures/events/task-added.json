@@ -1,0 +1,8 @@
+{
+  "eventId": "4f1d8e2a-6b3c-4c1e-9a7f-0d2b5e8c1a01",
+  "occurredAt": "2026-11-03T10:15:30.123Z",
+  "taskId": "9a3e7c51-2d4b-4f8a-b6c1-7e5d0f2a9b11",
+  "title": "Prepare release notes",
+  "description": "Summarise the sprint changes",
+  "assignee": "alice"
+}

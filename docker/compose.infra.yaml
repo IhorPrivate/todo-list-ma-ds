@@ -1,0 +1,39 @@
+# Broker and database. Used on its own by Spring Boot's Docker Compose support during
+# `mvn spring-boot:run` (spring.docker.compose.file), and included by docker-compose.yml.
+# The images are custom builds, so the service-connection label tells Spring Boot what they are.
+services:
+  rabbitmq:
+    build: ./rabbitmq
+    image: todo/rabbitmq:4.2
+    hostname: rabbitmq   # RabbitMQ stores data per node name; a fixed hostname keeps the volume valid
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-todo}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-todo}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    labels:
+      org.springframework.boot.service-connection: rabbitmq
+
+  mongo:
+    build: ./mongo-db
+    image: todo/mongo:8.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-root}
+      ADDTASK_DB_USER: ${ADDTASK_DB_USER:-addtask}
+      ADDTASK_DB_PASSWORD: ${ADDTASK_DB_PASSWORD:-addtask}
+      NOTIFICATION_DB_USER: ${NOTIFICATION_DB_USER:-notification}
+      NOTIFICATION_DB_PASSWORD: ${NOTIFICATION_DB_PASSWORD:-notification}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    labels:
+      org.springframework.boot.service-connection: mongo
+
+volumes:
+  rabbitmq-data:
+  mongo-data:

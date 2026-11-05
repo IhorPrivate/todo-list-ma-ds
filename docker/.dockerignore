@@ -1,0 +1,3 @@
+# Build context for the todo-list image is docker/; it only needs the jar.
+*
+!todo-list.jar

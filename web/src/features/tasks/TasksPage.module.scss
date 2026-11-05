@@ -1,0 +1,43 @@
+@use '@/styles/abstracts' as *;
+
+.page {
+  display: grid;
+  gap: var(--space-6);
+  inline-size: min(100% - 2 * var(--space-4), 60rem);
+  margin-inline: auto;
+  padding-block: var(--space-8);
+}
+
+.title {
+  font-size: var(--text-xl);
+}
+
+.section {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.state {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--color-text-muted);
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-lg);
+}
+
+.alert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  color: var(--color-danger);
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-lg);
+}

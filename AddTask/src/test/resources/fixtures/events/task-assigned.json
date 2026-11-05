@@ -1,0 +1,8 @@
+{
+  "eventId": "00000000-0000-0000-0000-0000000000e2",
+  "occurredAt": "2026-11-03T10:15:30Z",
+  "taskId": "00000000-0000-0000-0000-0000000000a1",
+  "title": "Write release notes",
+  "assignee": "bob",
+  "previousAssignee": "alice"
+}
